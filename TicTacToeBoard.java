@@ -7,6 +7,7 @@ public class TicTacToeBoard {
     private String line;
 
     private Scanner input = new Scanner(System.in);
+    private Random random = new Random();
 
     private static TicTacToeBoard ticTacToeBoard;
 
@@ -41,12 +42,13 @@ public class TicTacToeBoard {
             System.out.print("\n");
         }
     }
-
+    
     public boolean playAgainstComputer() {
         String computerOrPlayer;
         do {
         System.out.println("Would you like to play against a player or computer? Type \"Player\" or \"Computer\"");
         computerOrPlayer = input.nextLine().toLowerCase();
+
         if(computerOrPlayer.equals("player")) {
             return true;
         } else if(computerOrPlayer.equals("computer")) {
@@ -54,18 +56,18 @@ public class TicTacToeBoard {
         } else {
             System.out.println("Invalid Response! Please try again");
             continue;
-        } } while(true/*!computerOrPlayer.equals("player") || !computerOrPlayer.equals("computer")*/);
-        //return false;
+        } } while(!computerOrPlayer.equals("player") || !computerOrPlayer.equals("computer"));
+        return false;
     }
 
-    public void computerTurn() {
+    public void playCPU() {
         boolean notValid = true;
         int xPos;
         int yPos;
 
-        do {
-            xPos = (int) Math.random() * 2; 
-            yPos = clamp(input.nextInt(), 1, 3) - 1;
+        do { 
+            xPos = random.nextInt(3 - 1)+1;
+            yPos = random.nextInt(3 - 1)+1;
 
             if (board[xPos][yPos] == '_') {
                 board[xPos][yPos] = 'O';

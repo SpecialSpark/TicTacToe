@@ -18,11 +18,20 @@ public class App {
                 }
                 turnOrder += 1;
                 winner = board.checkWinner();
-                System.out.println(winner);
             } while (winner == null && turnOrder < 9);
         } else {
-            
+            do {
+                board.printBoard();
+                if (turnOrder % 2 == 0) {
+                    board.playX();
+                } else {
+                    board.playCPU();
+                }
+                turnOrder += 1;
+                winner = board.checkWinner();
+            } while (winner == null && turnOrder < 9);
         }
-
+        System.out.println(winner);
+        board.printBoard();
     }
 }
