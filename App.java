@@ -21,8 +21,8 @@ public class App {
             } while (winner == null && turnOrder < 9);
         } else {
             do {
-                board.printBoard();
                 if (turnOrder % 2 == 0) {
+                    board.printBoard();
                     board.playX();
                 } else {
                     board.playCPU();
