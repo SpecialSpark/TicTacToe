@@ -66,12 +66,14 @@ public class TicTacToeBoard {
         int yPos;
 
         do { 
-            xPos = random.nextInt(3 - 1)+1;
-            yPos = random.nextInt(3 - 1)+1;
+            xPos = random.nextInt(3);
+            yPos = random.nextInt(3);
 
             if (board[xPos][yPos] == '_') {
                 board[xPos][yPos] = 'O';
                 notValid = false;
+            } else {
+                System.out.println("spot taken");
             }
         } while (notValid);
     }

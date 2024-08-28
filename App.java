@@ -31,7 +31,13 @@ public class App {
                 winner = board.checkWinner();
             } while (winner == null && turnOrder < 9);
         }
-        System.out.println(winner);
+
+        if(winner == null){
+            System.out.println("It's a tie!");
+        } else{
+            System.out.println(winner);
+        }
+        
         board.printBoard();
     }
 }
